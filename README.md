@@ -1,41 +1,68 @@
-# AI Code Assistant
+# AI Coding Agent
 
-This is an AI-powered coding agent that can answer questions about your codebase, run code, and perform file operations using the Gemini API.
+A toy version of an agentic AI code assistant, inspired by tools like Cursor and Claude Code, built using Google's free Gemini API.
 
-## Features
+## What Does the Agent Do?
 
-- List files and directories
-- Read file contents
-- Execute Python files with optional arguments
-- Write or overwrite files
-- Step-by-step reasoning and explanations
+This CLI tool:
+- Accepts a coding task (e.g., "fix my calculator app, it's not starting correctly")
+- Chooses from a set of predefined functions to work on the task, such as:
+  - Scanning files in a directory
+  - Reading a file's contents
+  - Overwriting a file's contents
+  - Executing the Python interpreter on a file
+- Repeats these steps until the task is complete (or fails)
 
-## Usage
+**Example usage:**
+```
+python main.py "fix my calculator app, its not starting correctly"
+# Calling function: get_files_info
+# Calling function: get_file_content
+# Calling function: write_file
+# Calling function: run_python_file
+# Calling function: write_file
+# Calling function: run_python_file
+# Final response:
+# Great! The calculator app now seems to be working correctly. The output shows the expression and the result in a formatted way.
+```
 
-1. **Install dependencies:**
+## Prerequisites
+
+- Python 3.10+ installed
+- Access to a Unix-like shell (e.g., zsh or bash)
+- A Gemini API key
+
+## Learning Goals
+
+- Introduce you to multi-directory Python projects
+- Show how AI tools work under the hood
+- Practice Python and functional programming skills
+
+## Setup
+
+1. **Clone the repository:**
+   ```
+   git clone <your-repo-url>
+   cd <your-repo-directory>
+   ```
+
+2. **Install dependencies:**
    ```
    pip install -r requirements.txt
    ```
 
-2. **Set your Gemini API key:**
+3. **Set up your Gemini API key:**
    - Create a `.env` file in the project root:
      ```
      GEMINI_API_KEY=your_api_key_here
      ```
 
-3. **Run the assistant:**
+4. **Run the agent:**
    ```
-   python main.py "your question here"
-   ```
-   Example:
-   ```
-   python main.py "How does the calculator render results to the console?"
+   python main.py "your coding task here"
    ```
 
-4. **Verbose mode:**
-   ```
-   python main.py "your question here" --verbose
-   ```
+   Add `--verbose` for more detailed output.
 
 ## Project Structure
 
@@ -49,4 +76,4 @@ MIT License
 
 ---
 
-*Created for educational purposes.*
+*Built for educational purposes*
